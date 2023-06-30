@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <mat-card>
+                <mat-card class="instructionCard">
                     <mat-card-header></mat-card-header>
                     <mat-card-title class="ml20">
                         Read the instructions below
@@ -12,7 +12,7 @@
                     </mat-card-subtitle>
                     <mat-divider></mat-divider>
                     <mat-card-content>
-                        <h2 class="text mt10">{{quiz.title}}</h2>
+                        <h2 class="text mt10" style="color: rgb(32, 31, 31);" >{{quiz.title}}</h2>
                         <p>{{quiz.description}}</p>
                         <mat-divider></mat-divider>
                         <h1 class="mt10">Important Instructions</h1>
@@ -31,7 +31,7 @@
                     </mat-card-content>
                     <mat-card-actions>
                         
-                        <button (click)="startQuiz()" mat-raised-button class="mb10 mt10 center" color="primary">START</button>
+                        <button (click)="startQuiz()" mat-raised-button class="mb10 mt10 center" style="background-color: rgb(77, 75, 75); color: aliceblue;">START</button>
                     
                     </mat-card-actions>
                 </mat-card>

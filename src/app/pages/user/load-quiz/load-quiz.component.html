@@ -3,10 +3,10 @@
         <h1 class="mt20">Available Quizzes</h1>
         <div class="row" *ngIf="quizzes">
             <div class="col-md-4" *ngFor="let q of quizzes">
-                <mat-card class="mt10">
+                <mat-card class="mt10 quizCard">
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title class="text">
+                        <mat-card-title style="color: rgb(32, 31, 31);" class="text">
                             {{q.title}}
                         </mat-card-title>
                         <mat-card-subtitle>
@@ -17,9 +17,9 @@
                         <p class="truncate">{{q.description}}</p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button (click)="checkAttempts(q.quid,0)" class="ml20 mb10 mt10" mat-stroked-button color="primary" >Start</button>
-                        <div class="text ml20 mb10 mt10" mat-button color="primary">Questions: {{q.numberOfQuestions}}</div>
-                        <div class="text ml20 mb10 mt10" mat-button color="primary">Max Marks: {{q.maxMarks}}</div>
+                        <button (click)="checkAttempts(q.quid,0)" class="ml20 mb10 mt10" mat-stroked-button style="background-color: rgb(77, 75, 75); color: aliceblue;" >Start</button>
+                        <div class="text ml20 mb10 mt10" mat-button style="color: rgb(32, 31, 31);" >Questions: {{q.numberOfQuestions}}</div>
+                        <div class="text ml20 mb10 mt10" mat-button style="color: rgb(32, 31, 31);"  >Max Marks: {{q.maxMarks}}</div>
                     </mat-card-actions>
                 </mat-card>
             </div>

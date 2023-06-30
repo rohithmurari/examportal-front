@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="quizCard">
     <h1 class="ml20 mt10">Update Quiz</h1>
         <mat-card-content>
             <div class="bootstrap-wrapper">
@@ -52,7 +52,7 @@
               name="active"
               [(ngModel)]="quiz.active"
               class="mt10"
-              [color]="'primary'"
+              [color]="'rgb(77, 75, 75)'"
               [checked]="false"
               >
             Publish Status
@@ -62,7 +62,7 @@
           name="showResult"
           [(ngModel)]="quiz.showResult"
           class="mt10"
-          [color]="'primary'"
+          [color]="'rgb(77, 75, 75)'"
           [checked]="false"
           >
         Show Results
@@ -71,7 +71,7 @@
              <br>
 
                 <div class="container text-center mt15" style="margin-top: 10px;">
-                    <button mat-raised-button color="primary" type="submit">Update</button>
+                    <button mat-raised-button style="background-color: rgb(77, 75, 75); color: aliceblue;" type="submit">Update</button>
                 </div>
             </form>
         </div>

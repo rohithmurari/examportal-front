@@ -5,8 +5,8 @@
 
         
 
-            <mat-card *ngFor="let a of attempts;" class="mt20">
-                <mat-card-title class="ml10 mt10"> Username: {{a.user.username}}</mat-card-title>
+            <mat-card *ngFor="let a of attempts;" class="mt20 attemptCard">
+                <mat-card-title class="ml10 mt10" style="padding-left: 12px;"> Username: {{a.user.username}}</mat-card-title>
                 <mat-card-content class="ml10">
                     <p>
                      <span>Number  of questions: {{a.attempted}}<br>Correct Answers: {{a.correctAnswers}}<br>Marks: {{a.marksGot}}</span>

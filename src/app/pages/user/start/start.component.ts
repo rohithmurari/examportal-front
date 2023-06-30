@@ -1,6 +1,7 @@
 import { LocationStrategy } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
@@ -27,6 +28,8 @@ export class StartComponent implements OnInit{
   isSubmit=false;
   timer:any;
   showResult:any;
+
+  color: ThemePalette = 'warn';
 
   resultData={
    
