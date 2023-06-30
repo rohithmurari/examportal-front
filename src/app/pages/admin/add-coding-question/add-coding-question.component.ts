@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { QuestionService } from 'src/app/services/question.service';
-import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
-import  ClassicEditor  from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
-  selector: 'app-add-question',
-  templateUrl: './add-question.component.html',
-  styleUrls: ['./add-question.component.css']
+  selector: 'app-add-coding-question',
+  templateUrl: './add-coding-question.component.html',
+  styleUrls: ['./add-coding-question.component.css']
 })
-export class AddQuestionComponent implements OnInit{
+export class AddCodingQuestionComponent implements OnInit{
   public Editor=ClassicEditor;
   qId:any;
   qTitle:any;
@@ -24,7 +23,7 @@ export class AddQuestionComponent implements OnInit{
     option3:'',
     option4:'',
     answer:'',
-    code:false
+    code:true,
   };
   constructor(
     private _route:ActivatedRoute,
@@ -35,6 +34,7 @@ export class AddQuestionComponent implements OnInit{
     this.qId=this._route.snapshot.params['quid'];
     this.qTitle=this._route.snapshot.params['title'];
     this.questionData.quiz['quid']=this.qId;
+    
   }
   formSubmit(){
     if(this.questionData.content.trim()=='' || this.questionData.content.trim()==null){
@@ -55,8 +55,8 @@ export class AddQuestionComponent implements OnInit{
     if(this.questionData.answer.trim()=='' || this.questionData.answer.trim()==null){
       return;
     }  
-  
     this._question.addQuestion(this.questionData).subscribe((data: any)=>{
+      console.log(this.questionData);
       Swal.fire('Success','Question added succesfuly','success').then((e)=>{
         this._router.navigate([`/admin/view-questions/${this.qId}/${this.qTitle}`]);
       });
@@ -66,8 +66,8 @@ export class AddQuestionComponent implements OnInit{
       this.questionData.option3='';
       this.questionData.option4='';
       this.questionData.answer='';
-      this.questionData.code=false;
-      console.log(this.questionData);
+      this.questionData.code=true;
+      // console.log(this.questionData);
     },(error: any)=>{
       Swal.fire("Error",'Error in adding question','error');
       console.log(error);

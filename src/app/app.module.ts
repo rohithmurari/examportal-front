@@ -44,6 +44,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ViewAttemptsComponent } from './pages/admin/view-attempts/view-attempts.component';
+import { AddCodingQuestionComponent } from './pages/admin/add-coding-question/add-coding-question.component';
 // import {ThemePalette} from '@angular/material/core';
 // import { MonacoEditorModule } from 'ngx-monaco-editor';
 // import { AceEditorModule } from 'ngx-ace-editor-wrapper';
@@ -75,6 +76,7 @@ import { ViewAttemptsComponent } from './pages/admin/view-attempts/view-attempts
     InstructionsComponent,
     StartComponent,
     ViewAttemptsComponent,
+    AddCodingQuestionComponent,
   ],
   imports: [
     BrowserModule,

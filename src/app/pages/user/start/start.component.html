@@ -15,6 +15,10 @@
                 <h1 class="mt10">Ongoing Quiz: <b class="text" style="color: black;"> {{questions[0].quiz.title}}</b></h1>
                 </ng-container>
                 <mat-card *ngFor="let q of questions;let i=index" class="mt10 card">
+
+                    <ng-container *ngIf="!q.code">
+                        
+                    
                     <mat-card-content><p> <b>Q {{i+1}}) </b> <span [innerHTML]="q.content"></span></p>
                        
                         <mat-divider> </mat-divider>
@@ -80,10 +84,33 @@
                             </div>
                        
                     </mat-card-content>
+                </ng-container>
+
+
+<!-- 
+
+
+
+
+                
+                <div class="bootstrap-wrapper" *ngIf="!q.code" >
+                    <div class="row mt20">
+                        <iframe style='max-width:100%; border: none; height: 375px; width: 700px;' height=375 width=700 src="https://www.programiz.com/c-programming/online-compiler/" loading="lazy" allow="clipboard-write" allowfullscreen referrerpolicy="unsafe-url" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox"></iframe>
+
+                    </div>
+                </div> -->
+
+
+
+
+
+
+
                 </mat-card>
                 <div class="container text-center mt20 mb20">
                     <button mat-raised-button (click)="submitQuiz()" style="background-color: rgb(77, 75, 75); color: aliceblue;">Submit Quiz</button>
                 </div>
+                
             </div>
             <div class="col-md-2">
                 <mat-card class="card" style="margin-top: 60px;">

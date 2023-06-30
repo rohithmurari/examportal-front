@@ -89,6 +89,7 @@ export class StartComponent implements OnInit{
   loadQuestions() {
     this._question.getQuestionOfQuizForTest(this.qid).subscribe((data:any)=>{
     this.questions=data;
+    console.log(data);
     this.timer=this.questions.length*1*60;
     // this.questions.forEach((q:any)=>{
     //   q['givenAnswer']="";
