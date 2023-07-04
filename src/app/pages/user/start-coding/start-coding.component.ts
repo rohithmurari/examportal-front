@@ -1,22 +1,19 @@
 import { LocationStrategy } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 import { QuestionService } from 'src/app/services/question.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import { StartService } from 'src/app/services/start.service';
-import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-start',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.css']
+  selector: 'app-start-coding',
+  templateUrl: './start-coding.component.html',
+  styleUrls: ['./start-coding.component.css']
 })
-export class StartComponent implements OnInit{
+export class StartCodingComponent implements OnInit {
   currentUser:any;
   userid:any;
   currentQuiz:any;
@@ -65,6 +62,7 @@ export class StartComponent implements OnInit{
     private _start:StartService
   ){}
   ngOnInit(): void {
+    
     this.qid=this._route.snapshot.params['quid'];
    this.preventBackButton();
    this.loadQuestions();
@@ -83,15 +81,15 @@ export class StartComponent implements OnInit{
   });
 
 
-  
-
-
   }
+
+
+
   loadQuestions() {
     this._question.getQuestionOfQuizForTest(this.qid).subscribe((data:any)=>{
     this.questions=data;
     console.log(data);
-    this.timer=this.questions.length*1*60;
+    this.timer=this.questions.length*10*60;
     // this.questions.forEach((q:any)=>{
     //   q['givenAnswer']="";
     // });
@@ -179,7 +177,5 @@ export class StartComponent implements OnInit{
    
   }
 
-
- 
 
 }
