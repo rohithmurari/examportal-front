@@ -35,4 +35,9 @@ export class QuestionService {
   public evalQuiz(questions:any){
     return this._http.post('http://localhost:8080/question/eval-quiz',questions);
   }
+
+
+  public uploadQuestion(formData:any){
+    return this._http.post('http://localhost:8080/question/upload',formData);
+  }
 }

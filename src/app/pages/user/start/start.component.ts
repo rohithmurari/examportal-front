@@ -1,6 +1,6 @@
 import { LocationStrategy } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,6 +10,7 @@ import { QuizService } from 'src/app/services/quiz.service';
 import { StartService } from 'src/app/services/start.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
+import { browserRefresh } from 'src/app/app.component'
 
 @Component({
   selector: 'app-start',
@@ -41,6 +42,8 @@ export class StartComponent implements OnInit{
     user:{id:''},
     qAttempt:0,
   };
+  browserRefresh: any;
+  // browserRefresh: boolean | undefined;
 
   // quizData={
   //   title:'',
@@ -82,11 +85,19 @@ export class StartComponent implements OnInit{
     // console.log(this.showResult);
   });
 
-
+  this.browserRefresh = browserRefresh;
+  console.log('refreshed?:', browserRefresh);
+  // alert('you cheater, stop refreshing')
+  if(browserRefresh){
+    this.refreshButton();
+  }
   
 
 
   }
+
+ 
+
   loadQuestions() {
     this._question.getQuestionOfQuizForTest(this.qid).subscribe((data:any)=>{
     this.questions=data;
@@ -141,6 +152,23 @@ export class StartComponent implements OnInit{
     let ss=this.timer-mm*60;
     return hh+" hr: "+mm+" min: "+ss+" sec";
   }
+
+  refreshButton(){
+    Swal.fire({
+      title:'You lost All your data',
+      showCancelButton:false,
+      confirmButtonText:'OK',
+      denyButtonText:'No',
+      icon:'info'
+    }).then((e)=>{
+      if(e.isConfirmed){
+        this.evalQuiz();
+      }
+      console.log("Correct "+this.correctAnswers);
+      console.log("Marks "+this.marksGot);
+    });
+  }
+  
   evalQuiz() {
     console.log(this.questions);
     this._question.evalQuiz(this.questions).subscribe((data:any)=>{
@@ -179,6 +207,26 @@ export class StartComponent implements OnInit{
    
   }
 
+
+
+  // @HostListener('window:beforeunload', ['$event'])
+  // onBeforeUnload(event: BeforeUnloadEvent) {
+  //   event.preventDefault(); // Prompt the browser to show a confirmation dialog
+  //   console.log("page refreshed")
+  //   event.returnValue = ''; // This line is necessary for Chrome/Firefox
+  // }
+
+  // @HostListener('window:unload', ['$event'])
+  // onUnload(event: Event) {
+  //   // Perform cleanup or other actions before the page is unloaded
+  //   alert("you cheater again")
+  // }
+
+  // canDeactivate(): boolean {
+  //   // Your custom logic to determine if the user can navigate away from the component
+  //   // Return true to allow navigation or false to prevent it
+  //   return true;
+  // }
 
  
 

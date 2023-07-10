@@ -55,7 +55,7 @@ export class AddQuestionComponent implements OnInit{
     if(this.questionData.answer.trim()=='' || this.questionData.answer.trim()==null){
       return;
     }  
-  
+   
     this._question.addQuestion(this.questionData).subscribe((data: any)=>{
       Swal.fire('Success','Question added succesfuly','success').then((e)=>{
         this._router.navigate([`/admin/view-questions/${this.qId}/${this.qTitle}`]);

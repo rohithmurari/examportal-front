@@ -1,5 +1,5 @@
 import { LocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -64,7 +64,7 @@ export class StartCodingComponent implements OnInit {
   ngOnInit(): void {
     
     this.qid=this._route.snapshot.params['quid'];
-   this.preventBackButton();
+  //  this.preventBackButton();
    this.loadQuestions();
    
    this._login.getCurrentUser().subscribe((data:any)=>{
@@ -176,6 +176,27 @@ export class StartCodingComponent implements OnInit {
     });
    
   }
+
+  // @HostListener('window:beforeunload', ['$event'])
+  // onBeforeUnload(event: BeforeUnloadEvent) {
+  //   event.preventDefault(); // Prompt the browser to show a confirmation dialog
+  //   console.log("page refreshed")
+  //   event.returnValue = ''; // This line is necessary for Chrome/Firefox
+  // }
+
+  // @HostListener('window:unload', ['$event'])
+  // onUnload(event: Event) {
+  //   // Perform cleanup or other actions before the page is unloaded
+  //   alert("you cheater again")
+  // }
+
+  // canDeactivate(): boolean {
+  //   // Your custom logic to determine if the user can navigate away from the component
+  //   // Return true to allow navigation or false to prevent it
+  //   return true;
+  // }
+
+ 
 
 
 }
